@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- <link rel="stylesheet" type="text/css" href="welcome.css">
+         -->
+        <!-- <script type="text/javascript" src="{% static 'css/welcome.js' %}" ></script> -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <meta name="og:image" content="familyfunction1.jpeg"/>
+        <meta name="og:image" content="familyfunction2.jpeg"/>
+        <meta name="og:image" content="familyfunction3.jpeg"/>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+            .mySlides {display:none;
+                width: 1000px;
+                margin-left: auto;
+                margin-right: auto;
+                height: 400px;
+                float: center;
+            }
+            
+
+        </style>
+
+    </head>
+    <body>
+        <div class="w3-content w3-section" style="max-width:1500px">
+  
+          <img alt="familyfunction" class="mySlides" src="familyfunction1.jpeg" >
+          <img alt="familyfunction"class="mySlides" src="familyfunction2.jpeg" >
+          <img alt="familyfunction" class="mySlides" src="familyfunction3.jpeg">
+        </div>
+
+        <script>
+
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+          var i;
+          var x = document.getElementsByClassName("mySlides");
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+          }
+          myIndex++;
+          if (myIndex > x.length) {myIndex = 1}    
+          x[myIndex-1].style.display = "block";  
+          setTimeout(carousel, 3000); // Change image every 2 seconds
+        }
+
+    </script>
+    </body>
+  </html>

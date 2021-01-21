@@ -1,57 +1,34 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <link rel="stylesheet" href="welcome.css">
-        <script type="text/javascript" src="welcome.js" ></script>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+{% include 'guest_house/base.html' %}  
 
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> 
+<div>
+    <div style="text-align: left;padding-left: 100px;width: 50%;">
+      <h3>Super offers with Sign up!!</h3>
+      <p>1. Get 20% discount on your first booking</p>
+      <p>2. Refer to your friends and you and your friend will get 20% off when they will book</p>
+      <p>3. Enjoy your stay at Ridhi Sidhi and organise your parties</p>
+    </div>
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    </head>
-    <body>
-        <header>
-            <h1 style="text-align: center; color:rgba(0, 0, 0, 0.336);">Welcome to Ridhi Sidhi Happy stay</h1>
-        </header>
-        <div>
-            <div style="text-align: left;padding-left: 100px;">
-                <h3>Sign up!!</h3>
-                <form action="action_page.php" style="border:1px solid #ccc">
-                    <div class="container">
-                      <hr>
-                      
-                      <label for="FirstName"><b>First Name</b></label>
-                      <input type="text" placeholder="Enter First Name" name="FirstName" required>
-                      <br>
-                      <label for="LastName"><b>Last Name</b></label>
-                      <input type="text" placeholder="Enter Last Name" name="LastName" required>
-                      <br>
-                      <label for="email"><b>Email</b></label>
-                      <input type="text" placeholder="Enter Email" name="email" required>
-                      <br>
-                      <label for="phone"><b>Phone</b></label>
-                      <input type="number" placeholder="Enter Phone" name="phone" required>
-                      <br>
-                      <label for="psw"><b>Password</b></label>
-                      <input type="password" placeholder="Enter Password" name="psw" required>
-                      <br>
-                      <label for="psw-repeat"><b>Repeat Password</b></label>
-                      <input type="password" placeholder="Repeat Password" name="psw-repeat" required>
-                      <br>
-                      <label>
-                        <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> Remember me
-                      </label>
-                      <br>
-                 
-                    <button type="submit" class="signupbtn">Sign Up</button>
-                     
-                    </div>
-                  </form>
-            </div>
+    <form action="." method="post">
+  {% csrf_token %}
+  {{ form.non_field_errors }}
+  {% for field in form %}
+    {% if field.name != "username" %}
+      <div class="field-wrapper">
+        <div class="label-wrapper">
+          {{ field.label_tag }}
+          {% if field.field.required %}<span class="required">*</span>{% endif %}
         </div>
-    </body>
-</html>
+        <div class="value-wrapper">
+          {{ field }}
+          {{ field.errors }}
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+  <div class="submit-wrapper">
+    <input type="submit" value="Sign Up"/>
+  </div>
+</form>
+</div>
+    
